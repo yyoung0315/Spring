@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>타임리프 자료실 </title>
+</head>
+<div th:replace="/include/top"></div>
+
+<body>
+	<section>
+		<br>
+		<div align="center">
+			<h1 th:text="상세보기"></h1>
+			<form th:action="update.do" method="post" enctype="multipart/form-data">
+				<img th:src="@{./files/}+${m.img}" alt="학생사진" width="300px" height="300px">
+				<table border="1" width=500px>
+					<tr>
+						<td th:text="번호"></td>
+						<td><input type="text" name="idx" th:value="${m.idx}" readonly></td>
+					</tr>
+					<tr>
+						<td th:text="제목"></td>
+						<td><input type="text" name="title" th:value="${m.title}"></td>
+					</tr>
+					<tr>
+						<td>첨부사진</td>
+						<td><input type="file" name="file" id="file"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="수정하기"></td>
+					</tr>
+				</table>
+			</form>
+			<br> <a href="PsdList.do">목록으로</a>
+		</div>
+	</section>
+	<div th:replace="/include/bottom"></div>

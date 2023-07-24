@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>타임리프 자료실 </title>
+</head>
+<div th:replace="/include/top"></div>
+
+<body>
+	<section>
+		<br>
+		<div align="center">
+			<h1 th:text="상세보기"></h1>
+			<form th:action="memberupdate.do">
+				<table border="1" width=500px>
+					<tr>
+						<td th:text="아이디"></td>
+						<td><input type="text" name="id" th:value="${m.id}" readonly></td>
+					</tr>
+					<tr>
+						<td th:text="이름"></td>
+						<td><input type="text" name="name" th:value="${m.name}"></td>
+					</tr>
+					<tr>
+						<td>암호</td>
+						<td><input type="text" name="password" th:value="${m.password}"></td>
+					</tr>
+					<tr>
+						<td>구분</td>
+						<td th:text="${m.role}"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="수정하기"></td>
+					</tr>
+				</table>
+			</form>
+			<br> <a href="PsdList.do">목록으로</a>
+		</div>
+	</section>
+	<div th:replace="/include/bottom"></div>

@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>타임리프 자료실 </title>
+</head>
+<div th:replace="/include/top"></div>
+
+<script type="text/javascript" th:src="@{/js/form.js}"></script>
+<body th:align="center">
+	<section>
+		<br>
+		<div th:align="center">
+			<h1 th:text="${title}">사진등록</h1>
+			<form name="f1" th:action="insert.do" method="post" enctype="multipart/form-data" 
+			onsubmit="return testK()">
+				<table border="1" align="center">
+					<tr>
+						<td th:text="사진제목"></td>
+						<td><input type="text" name="title"></td>
+					</tr>
+					<tr>
+						<td>첨부사진</td>
+						<td><input type="file" name="file" id="file"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" value="사진저장하기" onclick="imgCK()">
+						</td>
+					</tr>
+				</table>
+				<br> <a href="index.html">(처음으로)</a>
+			</form>
+		</div>
+	</section>
+	<div th:replace="/include/bottom"></div>

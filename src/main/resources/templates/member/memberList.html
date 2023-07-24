@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>타임리프 자료실 </title>
+</head>
+<div th:replace="/include/top"></div>
+
+<body>
+	<div align="center">
+		<h1 th:text="회원목록보기"></h1>
+		<br><a th:href=memberform.do th:text="|(등록하기로가기)|"></a><br>
+		<table border="1">
+			<tr>
+				<td th:text="아이디"></td>
+				<td th:text="이름"></td>
+				<td th:text="암호"></td>
+				<td th:text="구분"></td>
+			</tr>
+			<tr th:each="m : ${li}">
+				<td th:text="${m.id}"></td>
+				<td><a th:href="@{memberedit.do(id=${m.id})}" th:text="${m.name}"></a></td>
+				<td><a th:href="@{memberdelete.do(id=${m.id})}" th:text="${m.password}"></a></td>
+				<td th:text="${m.role}"></td>
+			</tr>
+		</table>
+		<br> <a href="index.html">Main으로</a>
+	</div>
+<div th:replace="/include/bottom"></div>

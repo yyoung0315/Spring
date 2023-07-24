@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.young.y1.psd.PsdDao">
+ 
+ 	<insert id="insert" parameterType="com.young.y1.psd.PsdVO">
+ 		insert into psd(idx,title,img) values(psd_idx.nextval,#{title},#{img})
+ 	</insert>
+ 	
+ 	<select id="PsdList" resultType="com.young.y1.psd.PsdVO">
+ 		select idx,title,img from psd order by idx desc
+ 	</select>
+ 	
+ 	 <select id="selectImg" resultType="string" parameterType="com.young.y1.psd.PsdVO">
+ 		select img from psd where idx=#{idx}
+ 	</select>
+ 	
+ 	<delete id="delete" parameterType="com.young.y1.psd.PsdVO" >
+ 		delete from psd where idx=#{idx}
+ 	</delete>
+ 	
+ 	<select id="edit" resultType="com.young.y1.psd.PsdVO" parameterType="com.young.y1.psd.PsdVO">
+ 		select * from psd where idx=#{idx}
+ 	</select>
+ 	
+ 	 <update id="update1" parameterType="com.young.y1.psd.PsdVO" >
+ 		update psd set title=#{title} where idx=#{idx}
+ 	</update>
+ 	
+ 	 <update id="update2" parameterType="com.young.y1.psd.PsdVO" >
+ 		update psd set title=#{title}, img=#{img} where idx=#{idx}
+ 	</update>
+ 	
+ </mapper>

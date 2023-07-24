@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.young.y1.member.MemberDao">
+
+	<insert id="memberinsert"
+		parameterType="com.young.y1.member.MemberVO">
+		insert into member(id,name,password,role)
+		values(#{id},#{name},#{password},#{role})
+	</insert>
+
+	<select id="memberList"
+		resultType="com.young.y1.member.MemberVO">
+		select * from member
+	</select>
+
+	<delete id="memberdelete" parameterType="com.young.y1.member.MemberVO">
+		delete from member where id=#{id}
+	</delete>
+
+	<select id="memberedit" resultType="com.young.y1.member.MemberVO" >
+		select * from member where id=#{id}
+	</select>
+	
+	<update id="memberupdate" parameterType="com.young.y1.member.MemberVO">
+		update member set name=#{name}, password=#{password} where id = #{id}
+	</update>
+</mapper>
